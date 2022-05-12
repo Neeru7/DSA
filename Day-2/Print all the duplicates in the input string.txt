@@ -1,0 +1,22 @@
+#include <algorithm>
+#include <iostream>
+#include <vector>
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+	// Your code goes here;
+	string str;
+	cin>>str;
+	unordered_map<char,int> mp;
+	for(int i=0;i<str.length();i++)
+	mp[str[i]]++;
+	for(auto it:mp)
+	{
+		if(it.second>1)
+		cout<<it.first<<" "<<it.second<<endl;
+	}
+
+	return 0;
+}
