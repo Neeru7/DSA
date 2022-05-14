@@ -1,0 +1,19 @@
+class Solution {
+public:
+    string convertToTitle(int n) {
+        string ans="";
+        string k="";
+        while(n)
+        {
+            --n;
+            int d=n%26;
+            n=n/26;
+            k='A'+d;
+            ans=k+ans;
+            
+        }
+       
+        return ans;
+        
+    }
+};
