@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int getDecimalValue(ListNode* head) {
+        int res=0;
+        ListNode* curr=head;
+        while(curr!=NULL)
+        {
+            int x=curr->val;
+            res=res*2+x;
+            curr=curr->next;
+        }
+        return res;
+        
+    }
+};
