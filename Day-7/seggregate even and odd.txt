@@ -1,0 +1,46 @@
+class Solution{
+public:
+    Node* divide(int N, Node *head){
+        // code here
+        Node* curr=head;
+        Node* estart=NULL;
+        Node* eEnd=NULL;
+        Node* oStart=NULL;
+        Node* oEnd=NULL;
+        while(curr!=NULL)
+        {
+            int x=curr->data;
+            if(x%2==0)
+            {
+                if(estart==NULL)
+                {
+                    estart=eEnd=curr;
+                }
+                else
+                {
+                    eEnd->next=curr;
+                    eEnd=eEnd->next;
+                }
+                 }
+                 else
+                 {
+                     if(oStart==NULL)
+                {
+                    oStart=oEnd=curr;
+                }
+                else
+                {
+                oEnd->next=curr;
+                    oEnd=oEnd->next;
+                }
+                     
+                 }
+                 curr=curr->next;
+        }
+        if(estart==NULL || oStart==NULL)
+        return head;
+        eEnd->next=oStart;
+        oEnd->next=NULL;
+        return estart;
+    }
+};

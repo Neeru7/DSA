@@ -1,0 +1,29 @@
+class Solution
+{
+    public:
+    Node *zigZag(Node* head)
+    {
+     // your code goes here
+     int flag=1;
+     Node* curr=head;
+     while(curr->next)
+     {
+         if(flag)
+         {
+             if(curr->data>curr->next->data)
+               swap(curr->data,curr->next->data);
+               flag=0;
+         }
+         else
+         {
+             if(curr->data<curr->next->data)
+               swap(curr->data,curr->next->data);
+               flag=1;
+             
+         }
+         
+         curr=curr->next;
+     }
+     return head;
+    }
+};
