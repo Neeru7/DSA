@@ -1,0 +1,20 @@
+class StockSpanner {
+    stack<pair<int,int>> s;
+    int span;
+public:
+    StockSpanner() {
+    }
+       
+    
+    int next(int price) {
+        int span=1;
+        while(!s.empty() && s.top().first<=price)
+        {
+            span+=s.top().second;
+            s.pop();
+        }
+        s.emplace(price,span);
+        return span;
+        
+    }
+};

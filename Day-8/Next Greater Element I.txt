@@ -1,0 +1,30 @@
+class Solution {
+public:
+    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
+        stack<int> s;
+        int n=nums2.size();
+        int m=nums1.size();
+        
+        vector<int> res;
+        map<int,int> mp;
+        s.push(nums2[n-1]);
+          mp.insert(pair<int,int>(nums2[n-1],-1));
+        for(int i=n-2;i>=0;i--)
+        {
+            while(!s.empty() && s.top()<=nums2[i])
+                s.pop();
+            if(!s.empty())
+                mp.insert(pair<int,int>(nums2[i],s.top()));
+            s.push(nums2[i]);
+        }
+        for(int i=0;i<m;i++)
+        {
+            int val=mp[nums1[i]];
+            if(val!=0)
+                res.push_back(val);
+            else
+                res.push_back(-1);
+        }
+        return res;
+    }
+};
