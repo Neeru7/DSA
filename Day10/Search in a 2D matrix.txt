@@ -1,0 +1,18 @@
+bool findInMatrix(int x, vector<vector<int>> &arr)
+{
+    //    Write your code here.
+    int m=arr.size();
+    int n=arr[0].size();
+    int j=n-1,i=0;
+    while(i<m && j>=0)
+    {
+        if(arr[i][j]==x)
+            return true;
+        else if(arr[i][j]<x)
+            i++;
+        else
+            j--;
+        
+    }
+    return false;
+}
